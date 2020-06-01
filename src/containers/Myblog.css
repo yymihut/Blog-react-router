@@ -1,7 +1,7 @@
-.myblog a {
+/* .myblog a {
   text-decoration: none;
   color: black;
-}
+} */
 
 .myblog ul {
   list-style: none;
@@ -16,6 +16,7 @@
 
 .myblog ul li {
   margin: 15px;
+  font-size: 20px;
 }
 
 .myblog nav {
@@ -33,14 +34,31 @@
   right: 0;
   z-index: 1;
 }
-.myblog .allPosts {
-  margin-top: 120px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
 .myblog nav button  {
   background-color: rgb(55,197,57);     /* rgb(254,35,137) */
   font-weight: bolder;
+}
+
+.loginPasswordForm {
+  display: flex;
+  flex-direction: row;
+}
+.loginPasswordForm p {
+  width: 10px;
+}
+
+.loginPasswordForm #filled-password-input {
+  height: 15px;
+  padding-left: 10px;
+  width: 100px
+}
+.loginPasswordForm #filled-basic {
+  height: 15px;
+  padding-left: 10px;
+  width: 100px
+}
+
+.myblog a.active {
+  color: orange;
 }

@@ -1,0 +1,23 @@
+.authorDate {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+    flex: 1;
+  }
+  .authorDate p {
+    margin-right: 25px;
+  }
+  .postText {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+  .editViewButtons button {
+      background-color:rgb(10,13,179);
+      color: white;
+      margin-left: 5px;
+  }
+  .editViewButtons button :hover {   
+      color:black;
+      font-weight: bolder;   
+  }
