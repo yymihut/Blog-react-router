@@ -1,7 +1,7 @@
-/* .myblog a {
-  text-decoration: none;
-  color: black;
-} */
+.myblog  {
+  display: flex;
+  justify-content: center;
+}
 
 .myblog ul {
   list-style: none;
@@ -62,3 +62,4 @@
 .myblog a.active {
   color: orange;
 }
+

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import '../containers/Myblog.css';
-import Posts from '../containers/Posts/Posts'
+import Posts from '../containers/Posts/Posts';
+import FullPost from '../containers/FullPost/FullPost';
+import EditPost from '../containers/Edit-post/EditPost';
 
 class Myblog extends Component {
     render() {
@@ -26,30 +28,32 @@ class Myblog extends Component {
                             />
                         </form>
                         <li>
-                            <NavLink to="/Login" exact>                                
+                            <NavLink to="/login" exact>                                
                                     Login                                 
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to = "/Posts" exact>                                
+                            <NavLink to = "/posts" exact>                                
                                     Home Page                                
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/About" exact>                               
+                            <NavLink to="/about" exact>                               
                                     About Page                                
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/AddPost" exact>                                
+                            <NavLink to="/add-post" exact>                                
                                     Add Post                                
                             </NavLink>
                         </li>
                     </ul>
                 </nav>
                 <Switch>
-                    <Route path ="/Posts" exact component={Posts} />
                     <Route path ="/" exact component={Posts} />
+                    <Route path ="/posts" exact component={Posts} />
+                    <Route path ="/posts/:id" exact component={FullPost} />
+                    <Route path ="/posts/editPost/:id" exact render={props => <EditPost {...props} isAuthed={true}/>}/>                  
                 </Switch>
             </div>
         )
