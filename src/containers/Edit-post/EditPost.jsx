@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import "./EditPost.css";
 import axios from 'axios';
@@ -13,47 +12,34 @@ class EditPost extends Component {
         newAuthorValue: '',
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
+        this.setState({
+            newTitleValue: this.props.history.location.state.title,
+            newTextValue: this.props.history.location.state.text,
+            newAuthorValue: this.props.history.location.state.author,
+        })
         console.log('props la Edit-Post componentDidMount()', this.props);
-        /* this.loadData(); */
+        this.sendNewData = () => {
+            axios.put('http://localhost:3000/posts/' + this.props.match.params.id, {
+                author: this.state.newAuthorValue,
+                title: this.state.newTitleValue,
+                text: this.state.newTextValue,
+                date: this.currentDay('/'),
+            }).then(response => {
+                console.log('sendNewData()------', response)
+                /* this.setState({ loadedPost: response.data }); */
+            }).catch((err) => {
+                // daca sa stricat ceva
+                alert(err)
+            });
+        }
     }
-
-    /*    componentDidUpdate(prevProps) {
-          if (+this.props.match.params.id !== prevProps.id) {
-             this.loadData();
-          }
-       } */
-
-    /* loadData() {
-       axios.get('http://localhost:3000/posts/' + this.props.match.params.id)
-          .then(response => {            
-             this.setState({ loadedPost: response.data });
-          }).catch((err) => {
-             // daca sa stricat ceva
-             alert('introduceti id corect', err)
-          });
-    } */
 
     submitFunction = () => {
-        /* this.setState({
-            newTitleValue: this.title.value,
-            newTextValue: this.text.value,
-            newAuthorValue: this.author.value,
-        }) */
-        console.log(this.state);
+        console.log(this.state);        
+        this.sendNewData();
         this.props.history.goBack();
     }
-
-    updateInputTitle = (event) => {
-        this.setState({ newTitleValue: event.target.value })
-    }
-    updateInputText = (event) => {
-        this.setState({ newTextValue: event.target.value })
-    }
-    updateInputAuthor = (event) => {
-        this.setState({ newAuthorValue: event.target.value })
-    }       
-    
 
     currentDay = (sp) => {
         let today = new Date();
@@ -66,13 +52,17 @@ class EditPost extends Component {
         return (mm + sp + dd + sp + yyyy);
     };
 
+    updateStateInputs(key) {
+        return (event) => this.setState({ [key]: event.target.value })
+    }
+
     render() {
         console.log('render() Edit-Post--->', this.props);
         return (
             <div className="cardEditPost">
                 <div className="titleAndInfoEditPost">
                     <Typography gutterBottom variant="h5" component="h2">
-                        Edit post {/* {title} */}
+                        Edit post
                     </Typography>
                     <TextField
                         label="Post title"
@@ -81,8 +71,7 @@ class EditPost extends Component {
                         rowsMax="5"
                         fullWidth={false}
                         defaultValue={this.props.history.location.state.title}
-                        onChange={event => this.updateInputTitle(event)}
-                    /* onChange={event => this.setState({newTitleValue: event.target.value})} */
+                        onChange={this.updateStateInputs('newTitleValue')}
                     />
                     <TextField
                         id="outlined-basic"
@@ -92,7 +81,7 @@ class EditPost extends Component {
                         rowsMax="25"
                         fullWidth={true}
                         defaultValue={this.props.history.location.state.text}
-                        onChange={event => this.updateInputText(event)}
+                        onChange={this.updateStateInputs('newTextValue')}
                     />
                 </div>
                 <div className="actionButonsEditPost">
@@ -115,7 +104,7 @@ class EditPost extends Component {
                             label="Author"
                             variant="outlined"
                             defaultValue={this.props.history.location.state.author}
-                            onChange={event => this.updateInputAuthor(event)}
+                            onChange={this.updateStateInputs('newAuthorValue')}
                         />
 
                     </div>

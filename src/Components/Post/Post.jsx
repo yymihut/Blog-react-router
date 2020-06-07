@@ -64,7 +64,8 @@ class Post extends Component {
                         variant="contained"
                         color="secondary"
                         className={classes.button}
-                        startIcon={<DeleteIcon />}                        
+                        startIcon={<DeleteIcon />}
+                        onClick={this.props.clickedDelete}                      
                     >
                         Delete
                     </Button>

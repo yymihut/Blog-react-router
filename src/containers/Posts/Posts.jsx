@@ -35,13 +35,27 @@ class Posts extends Component {
    }
 
    componentDidMount() {
+      this.getPosts();
+   }
+
+   deletePost = (id)=> {
+      axios.delete('http://localhost:3000/posts/' + id)
+            .then(response => {
+               const newPosts = this.state.posts.filter(deleted => deleted.id !== response.data.id)
+               this.setState({ posts: newPosts })
+               console.log(response)
+            })
+   }
+
+   getPosts = ()=> {
       axios.get('http://localhost:3000/posts').then(response => {
          this.setState({ posts: response.data })
+         console.log(response)
       })
    }
 
    render() {
-      console.log('this.props.history - la - render()', this.props.match.url)
+      console.log('this.props.history - la - render()')
       let posts = this.state.posts.map(post => {
          return (
             <Post
@@ -57,6 +71,7 @@ class Posts extends Component {
                   post.title, 
                   post.author, 
                   post.date)}
+               clickedDelete={()=> this.deletePost(post.id)}
             />
          )
       })

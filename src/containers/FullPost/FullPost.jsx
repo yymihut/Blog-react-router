@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import DeleteIcon from '@material-ui/icons/Delete';
 import "./FullPost.css";
 import axios from 'axios';
 
@@ -13,13 +11,7 @@ class FullPost extends Component {
    componentDidMount() {
       console.log('props la FullPost componentDidMount()', this.props);
       this.loadData();
-   }
-
-   /*    componentDidUpdate(prevProps) {
-         if (+this.props.match.params.id !== prevProps.id) {
-            this.loadData();
-         }
-      } */
+   }   
 
    loadData() {
       axios.get('http://localhost:3000/posts/' + this.props.match.params.id)
