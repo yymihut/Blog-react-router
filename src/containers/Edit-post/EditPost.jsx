@@ -19,7 +19,7 @@ class EditPost extends Component {
             newAuthorValue: this.props.history.location.state.author,
         })
         console.log('props la Edit-Post componentDidMount()', this.props);
-        this.sendNewData = () => {
+        this.updateNewData = () => {
             axios.put('http://localhost:3000/posts/' + this.props.match.params.id, {
                 author: this.state.newAuthorValue,
                 title: this.state.newTitleValue,
@@ -37,7 +37,7 @@ class EditPost extends Component {
 
     submitFunction = () => {
         console.log(this.state);        
-        this.sendNewData();
+        this.updateNewData();
         this.props.history.goBack();
     }
 

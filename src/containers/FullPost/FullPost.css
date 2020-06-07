@@ -1,19 +1,19 @@
-.card .postText {
+.cardFullPost .postText {
   text-align: justify;
   text-justify: inter-word;
 }
 
-.card .editViewButtons button {
+.cardFullPost .editViewButtons button {
   background-color: rgb(10, 13, 179);
   color: white;
   margin-left: 5px;
 }
-.card .editViewButtons button :hover {
+.cardFullPost .editViewButtons button :hover {
   color: black;
   font-weight: bolder;
 }
 
-.card .actionButons {
+.cardFullPost .actionButons {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,28 +21,28 @@
   min-width: 85%;
 }
 
-.card .authorDate {
+.cardFullPost .authorDate {
   display: flex;
   align-self: flex-end;
   flex-direction: row-reverse;
 }
 
-.card .authorDate p {
+.cardFullPost .authorDate p {
   margin-right: 25px;
 }
 
-.card .titleAndInfo {
+.cardFullPost .titleAndInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.card .titleAndInfo p {
+.cardFullPost .titleAndInfo p {
   text-align: justify;
   margin-bottom: 25px;
 }
 
-.card {
+.cardFullPost {
   margin-top: 120px;
   max-width: 800px;
   background-color: rgb(177, 177, 177);
@@ -56,6 +56,6 @@
   align-items: center;
   padding: 15px;
 }
-.card .delete {
+.cardFullPost .delete {
   margin-left: 5px;
 }

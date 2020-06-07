@@ -1,0 +1,72 @@
+.cardAddPost .postTextAddPost {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+  .cardAddPost .editViewButtonsAddPost button {
+    background-color: rgb(10, 13, 179);
+    color: white;
+    margin-left: 5px;
+    
+  }
+  .cardAddPost .editViewButtonsAddPost button :hover {
+    color: rgb(180, 17, 17);
+    font-weight: bolder;
+  }
+  
+  .cardAddPost .actionButonsAddPost {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 35px;
+    min-width: 85%;
+    margin-top: 15px;
+  }
+  
+  .cardAddPost .authorDateAddPost {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  
+  .cardAddPost .authorDateAddPost p {
+    margin-left: 35px;
+    flex:1;
+    align-self: flex-end;
+  }
+  
+  .cardAddPost .titleAndInfoAddPost {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cardAddPost .titleAndInfoAddPost :nth-child(2) {
+    margin-bottom: 10px;
+  }
+  
+  .cardAddPost .titleAndInfoAddPost p {
+    text-align: justify;
+    margin-bottom: 25px;
+  }
+  
+  .cardAddPost {
+    margin-top: 120px;
+    min-width: 600px;
+    background-color: rgb(177, 177, 177);
+    -webkit-box-shadow: -1px 6px 46px 16px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 6px 46px 16px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 6px 46px 16px rgba(0, 0, 0, 0.75);
+    opacity: 0.8;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+  .cardAddPost textarea {
+      min-width: 600px;
+      margin-left: 10px;
+      text-align: justify;
+  }
+  
+  

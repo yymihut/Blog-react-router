@@ -5,6 +5,8 @@ import '../containers/Myblog.css';
 import Posts from '../containers/Posts/Posts';
 import FullPost from '../containers/FullPost/FullPost';
 import EditPost from '../containers/Edit-post/EditPost';
+import AddPost from '../containers/AddPost/AddPost';
+import About from '../containers/About/About';
 
 class Myblog extends Component {
     render() {
@@ -52,12 +54,16 @@ class Myblog extends Component {
                 <Switch>
                     <Route path ="/" exact component={Posts} />
                     <Route path ="/posts" exact component={Posts} />
+                    <Route path ="/add-post" exact component={AddPost} />
+                    <Route path ="/about" exact component={About} />
                     <Route path ="/posts/:id" exact component={FullPost} />
-                    <Route path ="/posts/editPost/:id" exact render={props => <EditPost {...props} isAuthed={true}/>}/>                  
+                    <Route path ="/posts/editPost/:id" exact component={EditPost}/>                  
                 </Switch>
             </div>
         )
     }
+
+    /* render={props => <EditPost {...props} isAuthed={true}/> */
 }
 
 export default Myblog;

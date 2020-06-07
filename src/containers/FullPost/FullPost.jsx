@@ -29,7 +29,7 @@ class FullPost extends Component {
          const { title, text, date, author } = this.state.loadedPost;
          console.log('render() datele de la if--->', title, text, date, author);
          post = (
-            <div className="card">
+            <div className="cardFullPost">
                <div className="titleAndInfo">
                   <Typography gutterBottom variant="h5" component="h2">
                      {title}
