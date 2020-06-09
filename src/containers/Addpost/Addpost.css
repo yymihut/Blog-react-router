@@ -4,13 +4,13 @@
   }
   
   .cardAddPost .editViewButtonsAddPost button {
-    background-color: rgb(10, 13, 179);
+    background-color: rgb(27, 29, 184);
     color: white;
     margin-left: 5px;
     
   }
   .cardAddPost .editViewButtonsAddPost button :hover {
-    color: rgb(180, 17, 17);
+    color: rgb(137, 160, 223);
     font-weight: bolder;
   }
   

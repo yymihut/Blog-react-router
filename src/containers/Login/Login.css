@@ -37,9 +37,9 @@
     justify-content: center;
   }
   
-  .cardLogin .titleAndInfo p {
+  .cardLogin .titleAndInfo h2 {
     text-align: justify;
-    margin-bottom: 25px;
+    margin-bottom: 45px;
   }
   
   .cardLogin {
@@ -56,7 +56,44 @@
     align-items: center;
     padding: 15px;
   }
-  .cardLogin .delete {
+ 
+  .cardLogin .loginPasswordForm {
+    display: flex;
+    flex-direction: row;
+  }
+  .cardLogin .loginPasswordForm p {
+    width: 10px;
+  }
+  
+  .cardLogin .loginPasswordForm #filled-password-input {
+    height: 15px;
+    padding-left: 10px;
+    width: 150px
+  }
+  .cardLogin .loginPasswordForm #filled-basic {
+    height: 15px;
+    padding-left: 10px;
+    width: 150px
+  }
+
+  .cardLogin  button {
+    background-color: rgb(27, 29, 184);
+    color: white;
+    margin-top: 15px;
+    
+  }
+  .cardLogin  button :hover {
+    color: rgb(137, 160, 223);
+    font-weight: bolder;
+  }
+  .cardLogin .editViewButtonsLogin button {
+    background-color: rgb(10, 13, 179);
+    color: white;
     margin-left: 5px;
+    
+  }
+  .cardLogin .editViewButtonsLogin button :hover {
+    color: rgb(180, 17, 17);
+    font-weight: bolder;
   }
   

@@ -52,12 +52,15 @@ class EditPost extends Component {
         return (mm + sp + dd + sp + yyyy);
     };
 
+    cancel = ()=> {
+        this.props.history.goBack();
+    }
+
     updateStateInputs(key) {
         return (event) => this.setState({ [key]: event.target.value })
     }
 
-    render() {
-        console.log('render() Edit-Post--->', this.props);
+    render() {       
         return (
             <div className="cardEditPost">
                 <div className="titleAndInfoEditPost">
@@ -92,6 +95,13 @@ class EditPost extends Component {
                             onClick={() => this.submitFunction()}
                         >
                             Submit
+                        </Button>
+                        <Button
+                            variant="contained"
+                            size="small"
+                            onClick={this.cancel}
+                        >
+                            Cancel
                         </Button>
                     </div>
 

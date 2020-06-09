@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Typography from "@material-ui/core/Typography";
 import "./About.css";
 
 
-const About = () => {
-    console.log('const About = () =>--->');
+const About = () => {    
     return (
         <div className="cardAbout">
             <div className="titleAndInfo">

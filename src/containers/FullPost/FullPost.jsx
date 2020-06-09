@@ -9,7 +9,6 @@ class FullPost extends Component {
    }
 
    componentDidMount() {
-      console.log('props la FullPost componentDidMount()', this.props);
       this.loadData();
    }   
 

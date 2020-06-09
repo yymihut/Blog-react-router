@@ -21,8 +21,7 @@ class CreatePost extends Component {
                 text: this.state.newTextValue,
                 date: this.currentDay('/'),
             }).then(response => {
-                console.log('this.createNewData ***** ', response)
-                /* this.setState({ loadedPost: response.data }); */
+                console.log('this.createNewData ***** ', response)               
             }).catch((err) => {
                 // daca sa stricat ceva
                 alert(err)
@@ -51,6 +50,10 @@ class CreatePost extends Component {
         return (event) => this.setState({ [key]: event.target.value })
     }
 
+    cancel = ()=> {
+        this.props.history.goBack();
+    }
+
     render() {
         console.log('render() Edit-Post--->', this.props);
         return (
@@ -65,8 +68,7 @@ class CreatePost extends Component {
                         multiline={true}
                         rowsMax="5"
                         fullWidth={false}
-                        placeholder='Your post title'
-                        /* defaultValue={this.props.history.location.state.title} */
+                        placeholder='Your post title'                        
                         onChange={this.updateStateInputs('newTitleValue')}
                     />
                     <TextField
@@ -76,8 +78,7 @@ class CreatePost extends Component {
                         multiline={true}
                         rowsMax="25"
                         fullWidth={true}
-                        placeholder='Your post about ...'
-                        /* defaultValue={this.props.history.location.state.text} */
+                        placeholder='Your post about ...'                     
                         onChange={this.updateStateInputs('newTextValue')}
                     />
                 </div>
@@ -90,6 +91,13 @@ class CreatePost extends Component {
                         >
                             Submit
                         </Button>
+                        <Button
+                            variant="contained"
+                            size="small"
+                            onClick={this.cancel}
+                        >
+                            Cancel
+                        </Button>
                     </div>
 
                     <div className="authorDateAddPost">
@@ -100,8 +108,7 @@ class CreatePost extends Component {
                             id="outlined-basic"
                             label="Author"
                             variant="outlined"
-                            placeholder='Your name'
-                            /* defaultValue={this.props.history.location.state.author} */
+                            placeholder='Your name'                            
                             onChange={this.updateStateInputs('newAuthorValue')}
                         />
 

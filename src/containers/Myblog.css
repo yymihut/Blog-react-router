@@ -40,25 +40,6 @@
   font-weight: bolder;
 }
 
-.loginPasswordForm {
-  display: flex;
-  flex-direction: row;
-}
-.loginPasswordForm p {
-  width: 10px;
-}
-
-.loginPasswordForm #filled-password-input {
-  height: 15px;
-  padding-left: 10px;
-  width: 100px
-}
-.loginPasswordForm #filled-basic {
-  height: 15px;
-  padding-left: 10px;
-  width: 100px
-}
-
 .myblog a.active {
   color: orange;
 }

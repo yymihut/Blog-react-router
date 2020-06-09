@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import axios from 'axios';
-import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import Post from '../../../src/Components/Post/Post';
 import "./Posts.css";
-import EditPost from '../Edit-post/EditPost';
-
-
 
 class Posts extends Component {
    constructor(props) {
@@ -16,7 +15,6 @@ class Posts extends Component {
    }
 
    postViewFunction = (id) => {
-      /* console.log("props postViewFunction ---- ",this.props.history ) */
       this.props.history.push('/posts/' + id);
    }
 
@@ -38,24 +36,22 @@ class Posts extends Component {
       this.getPosts();
    }
 
-   deletePost = (id)=> {
+   deletePost = (id) => {
       axios.delete('http://localhost:3000/posts/' + id)
-            .then(response => {
-               const newPosts = this.state.posts.filter(deleted => deleted.id !== response.data.id)
-               this.setState({ posts: newPosts })
-               console.log(response)
-            })
+         .then(response => {
+            const newPosts = this.state.posts.filter(deleted => deleted.id !== response.data.id)
+            this.setState({ posts: newPosts })
+         })
    }
 
-   getPosts = ()=> {
+   getPosts = () => {
       axios.get('http://localhost:3000/posts').then(response => {
          this.setState({ posts: response.data })
-         console.log(response)
       })
    }
 
-   render() {
-      console.log('this.props.history - la - render()')
+   
+   render() {    
       let posts = this.state.posts.map(post => {
          return (
             <Post
@@ -66,12 +62,26 @@ class Posts extends Component {
                date={post.date}
                clickedView={() => this.postViewFunction(post.id)}
                clickedEdit={() => this.postEditFunction(
-                  post.id, 
-                  post.text, 
-                  post.title, 
-                  post.author, 
+                  post.id,
+                  post.text,
+                  post.title,
+                  post.author,
                   post.date)}
-               clickedDelete={()=> this.deletePost(post.id)}
+               clickedDelete={() => confirmAlert({
+                  title: 'Deleting...',
+                  message: 'Are you sure to do this ?',
+                  buttons: [
+                     {
+                        label: 'Yes',
+                        onClick: () => this.deletePost(post.id)
+                     },
+                     {
+                        label: 'No',
+                        onClick: () => { return false }
+                     }
+                  ]
+               })}
+               auth={sessionStorage.getItem('auth')}
             />
          )
       })
@@ -86,6 +96,6 @@ class Posts extends Component {
    }
 }
 
-export default Posts;
+export default withRouter(Posts);
 
 
