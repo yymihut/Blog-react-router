@@ -14,7 +14,7 @@ class CreateComment extends Component {
         this.createNewComment = () => {
             let idx = this.props.history.location.state.idx;
             axios.post(`http://localhost:3000/posts/${idx}/comments`, {
-                /* author: this.state.newAuthorValue, */                
+                user: this.getUser(),                
                 text: this.state.newCommentValue,
                 date: this.currentDay('/'),
             }).then(response => {
@@ -50,7 +50,10 @@ class CreateComment extends Component {
         this.props.history.goBack();
     }
 
-    render() {        
+    getUser =()=> sessionStorage.getItem('user');
+
+    render() {
+        console.log('this.getUser()',this.getUser())        
         return (
             <div className="cardAddComment">
                 <div className="titleAndInfoAddComment">
@@ -91,7 +94,7 @@ class CreateComment extends Component {
                             Date: {this.currentDay('/')}
                         </Typography>
                         <Typography variant="body2" color="inherit" component="p">
-                            User: '**********'
+                            User: {this.getUser()}
                         </Typography>
                     </div>
                 </div>

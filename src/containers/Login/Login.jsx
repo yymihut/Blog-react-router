@@ -49,6 +49,7 @@ class Login extends Component {
             if (el.userName === this.state.userInput &&
                 el.password === this.state.passInput) {
                 sessionStorage.setItem('auth', true);
+                sessionStorage.setItem('user', el.userName);
                 this.props.history.push('/posts');               
             }
         });

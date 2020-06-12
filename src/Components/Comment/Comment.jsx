@@ -39,7 +39,7 @@ class Comment extends Component {
                             Date: {this.props.date}
                         </Typography>
                         <Typography variant="body2" color="inherit" component="p">
-                            User: {this.props.author}
+                            User: {this.props.user}
                         </Typography>
                     </Typography>
                 </CardActions>
