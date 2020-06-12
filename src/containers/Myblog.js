@@ -9,6 +9,7 @@ import EditPost from '../containers/Edit-post/EditPost';
 import AddPost from '../containers/AddPost/AddPost';
 import About from '../containers/About/About';
 import Login from '../containers/Login/Login';
+import AddComment from '../Components/AddComment/AddComment'
 
 
 class Myblog extends Component {
@@ -102,7 +103,8 @@ class Myblog extends Component {
                     <Route path="/login" exact component={Login} />
                     <Route path="/add-post" exact component={AddPost} />
                     <Route path="/about" exact component={About} />
-                    <Route path="/posts/:id" exact component={FullPost} />
+                    <Route path="/addComment" exact component={AddComment} />
+                    <Route path="/posts/:id" exact render={props => <FullPost {...props} auth={this.auth} />} />
                     <Route path="/posts/editPost/:id" exact component={EditPost} />
                 </Switch>
             </div>
@@ -111,3 +113,5 @@ class Myblog extends Component {
 }
 
 export default withRouter(Myblog);
+
+/* component={FullPost} */

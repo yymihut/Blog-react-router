@@ -14,8 +14,13 @@ class Posts extends Component {
       }
    }
 
-   postViewFunction = (id) => {
-      this.props.history.push('/posts/' + id);
+   postViewFunction = (id, idx) => {
+      this.props.history.push({
+        pathname:  '/posts/' + id,
+        state: {
+           idx: idx,
+        }
+      });
    }
 
    postEditFunction = (id, text, title, author, date) => {
@@ -52,7 +57,7 @@ class Posts extends Component {
 
    
    render() {    
-      let posts = this.state.posts.map(post => {
+      let posts = this.state.posts.map((post, idx) => {
          return (
             <Post
                author={post.author}
@@ -60,7 +65,7 @@ class Posts extends Component {
                text={post.text}
                key={post.id}
                date={post.date}
-               clickedView={() => this.postViewFunction(post.id)}
+               clickedView={() => this.postViewFunction(post.id, idx)}
                clickedEdit={() => this.postEditFunction(
                   post.id,
                   post.text,

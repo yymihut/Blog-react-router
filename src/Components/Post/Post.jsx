@@ -13,7 +13,7 @@ import "./Post.css";
 const useStyles = () => ({
     root: {
         marginTop: "28px",
-        width: 800,
+        width: "70%",
         opacity: 0.8,
         boxShadow: "-1px 6px 19px 1px rgba(0,0,0,0.75)",
         backgroundColor: "rgb(177, 177, 177)",

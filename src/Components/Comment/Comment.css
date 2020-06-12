@@ -1,0 +1,14 @@
+.commentAuthorDate {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+    flex: 1;
+  }
+  .commentAuthorDate p {
+    margin-right: 25px;
+  }
+  .commentPostText {
+    text-align: justify;
+    text-justify: inter-word;
+  }  
+  
