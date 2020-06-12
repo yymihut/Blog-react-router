@@ -18,7 +18,7 @@ class Login extends Component {
         this.fetchedUsers = [
             {
                 userName: 'marius',
-                password: '123'
+                password: '123',
             },
             {
                 userName: 'mihut',

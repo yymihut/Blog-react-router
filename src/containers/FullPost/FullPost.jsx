@@ -103,6 +103,9 @@ class FullPost extends Component {
                      </div>
                   </div>
                </div>
+               <Typography className="titleComents" gutterBottom variant="h5" component="h2">
+                        Coments
+               </Typography>
                {this.showComments()}
             </div>
          )

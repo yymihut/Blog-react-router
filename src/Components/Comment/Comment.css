@@ -8,6 +8,10 @@
     margin-right: 25px;
     margin-top: 15px; 
   }
+
+  p {
+    text-align: justify;
+  }
  
   .actionButonsAddComment button {
     background-color: rgb(10, 13, 179);

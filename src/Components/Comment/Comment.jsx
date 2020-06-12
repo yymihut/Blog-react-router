@@ -26,13 +26,13 @@ class Comment extends Component {
         return (
             <Card
                 className={classes.root}            >
-                <CardActionArea>
+                
                     <CardContent>                        
                         <Typography className="commentPostText" variant="body2" color="inherit" component="p">
                             {this.props.text}
                         </Typography>
                     </CardContent>
-                </CardActionArea>
+                
                 <CardActions >                    
                     <Typography component="div" className="commentAuthorDate">
                         <Typography variant="body2" color="inherit" component="p">

@@ -22,16 +22,16 @@ class Myblog extends Component {
     }
 
     logOut = () => {
-        this.setState({auth: false})   
-        sessionStorage.clear();        
-    }   
+        this.setState({ auth: false })
+        sessionStorage.clear();
+    }
 
-    isLogged = () => {       
+    isLogged = () => {
         this.auth = sessionStorage.getItem('auth')
         if (!this.auth) {
             return (
                 <li>
-                    <NavLink to="/login" exact>
+                    <NavLink to="/login" >
                         Login
                     </NavLink>
                 </li>
@@ -39,7 +39,7 @@ class Myblog extends Component {
         } else {
             return (
                 <li>
-                    <NavLink to={"/posts"} exact onClick={this.confimation}> 
+                    <NavLink to={"/"} exact onClick={this.confimation}>
                         Sign out
                     </NavLink>
                 </li>
@@ -54,17 +54,17 @@ class Myblog extends Component {
             buttons: [
                 {
                     label: 'Yes',
-                    onClick: ()=> this.logOut()
+                    onClick: () => this.logOut()
                 },
                 {
                     label: 'No',
-                    onClick: () => {return false}
+                    onClick: () => { return false }
                 }
             ]
         });
     };
 
-    addPost = () => {        
+    addPost = () => {
         if (this.auth) {
             return (
                 <li>
@@ -77,25 +77,26 @@ class Myblog extends Component {
     }
 
     render() {
-        let checkLogin = this.isLogged()
-        let addPost = this.addPost()
         return (
             <div className="myblog">
-                <nav>My blog
-                    <ul>
-                        {checkLogin}
-                        <li>
-                            <NavLink to="/posts" exact >
-                                Home Page
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/about" exact>
-                                About Page
-                            </NavLink>
-                        </li>
-                        {addPost}
-                    </ul>
+                <nav> My blog
+                    <div className="user">
+                        <img src={ require('../images/User-icon.png') } />
+                        <ul>
+                            {this.isLogged()}
+                            <li>
+                                <NavLink to="/posts" exact >
+                                  Home Page
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/about" exact>
+                                    About Page
+                                </NavLink>
+                            </li>
+                            {this.addPost()}
+                        </ul>
+                    </div>
                 </nav>
                 <Switch>
                     <Route path="/" exact component={Posts} />
